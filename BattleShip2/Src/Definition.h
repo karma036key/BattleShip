@@ -3,22 +3,36 @@
 
 
 // ÉVÅ[ÉìID
-enum SceneID
+enum class SceneID
 {
-	SceneID_Title,
-	SceneID_Preparation,
-	SceneID_InGame,
-	SceneID_Result,
+	Title,
+	Preparation,
+	InGame,
+	Result,
 
-	SceneID_Max,
-	SceneID_Invalid,
+	Max,
+	Invalid,
 
 
 };
 
+enum class SquareID
+{
+	NONE,
+	HIT,
+	OFF,
+};
 
 
 
+struct SquareState
+{
+	int pos_x;
+	int pos_y;
+	int center_x;
+	int center_y;
+	SquareID square;
+};
 
 
 

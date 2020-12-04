@@ -1,18 +1,18 @@
 #include"SceneManager.h"
 
-#include"../Scene/SceneBase.h"
+#include"../Scene/SceneBasa.h"
 #include"../Scene/TitleScene.h"
 #include"../Scene/PreparationScene.h"
 #include"../Scene/InGameScene.h"
 #include"../Scene/ResultScene.h"
 
-SceneID SceneManager::next_SceneID = SceneID_Invalid;
+SceneID SceneManager::next_SceneID = SceneID::Invalid;
 
 SceneManager::SceneManager()
 	:p_scene(nullptr)
 {
 	// 最初に実行するシーンを作成する
-	SetNextScene(SceneID_Title);
+	SetNextScene(SceneID::Title);
 	p_scene = CreateNextScene();
 }
 
@@ -57,10 +57,10 @@ SceneBase* SceneManager::CreateNextScene()
 	{
 		// ここにそれぞれSceneBaseを継承した派生クラスをnewする処理を書く
 		// シーンの増減があってもヘッダのインクルードとここ以外に変更は必要ない
-	case SceneID_Title:			next = new TitleScene(); break;
-	case SceneID_Preparation:	next = new PreparationScene(); break;
-	case SceneID_InGame:		next = new InGameScene(); break;
-	case SceneID_Result:		next = new ResultScene(); break;
+	case SceneID::Title:		next = new TitleScene(); break;
+	case SceneID::Preparation:	next = new PreparationScene(); break;
+	case SceneID::InGame:		next = new InGameScene(); break;
+	case SceneID::Result:		next = new ResultScene(); break;
 	default:break;
 	}
 	return next;

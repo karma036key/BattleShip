@@ -20,7 +20,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	SetDrawScreen(DX_SCREEN_BACK);
 
 
+
 	// 管理クラスの作成
+	SceneManager* pSceneManager = new SceneManager();
 
 
 
@@ -40,11 +42,12 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		// 処理
 
+		pSceneManager->Exec();
 
 
 
 		// 描画
-
+		pSceneManager->Draw();
 
 
 		// DxLibのお約束：画面更新

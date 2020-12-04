@@ -10,7 +10,7 @@ public:
 	virtual void Exec() = 0;
 	virtual void Draw() = 0;
 	virtual bool DecideEnd()const = 0;
-
+	virtual bool DetectEndArea()const = 0;
 private:
 
 };

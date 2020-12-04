@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Manager\DrawManager.cpp" />
     <ClCompile Include="Src\Manager\InputManager.cpp" />
     <ClCompile Include="Src\Manager\SceneManager.cpp" />
     <ClCompile Include="Src\Scene\InGameScene.cpp" />
@@ -162,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Definition.h" />
+    <ClInclude Include="Src\Manager\DrawManager.h" />
     <ClInclude Include="Src\Manager\InputManager.h" />
     <ClInclude Include="Src\Manager\SceneManager.h" />
     <ClInclude Include="Src\Scene\InGameScene.h" />
