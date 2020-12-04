@@ -20,7 +20,6 @@ private:
 	const int origin_pos_y;
 	const int offset_x;
 	const int offset_y;
-
 };
 
 

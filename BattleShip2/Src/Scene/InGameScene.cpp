@@ -26,9 +26,11 @@ void InGameScene::Exec()
 {
 
 
-//	if (InGameScene::DetectEndArea())
+	if (InGameScene::DetectEndArea())
+	{
+		isEnd = true;
 		SceneManager::SetNextScene(SceneID::Result);
-
+	}
 
 }
 
@@ -42,7 +44,7 @@ void InGameScene::Draw()
 
 bool InGameScene::DecideEnd()const
 {
-	return InGameScene::DetectEndArea();
+	return isEnd;
 
 
 

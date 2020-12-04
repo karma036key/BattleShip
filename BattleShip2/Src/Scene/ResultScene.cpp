@@ -26,9 +26,11 @@ ResultScene::~ResultScene()
 
 void ResultScene::Exec()
 {
-//	if (ResultScene::DetectEndArea())
+	if (ResultScene::DetectEndArea())
+	{
+		isEnd = true;
 		SceneManager::SetNextScene(SceneID::Title);
-
+	}
 
 
 }
@@ -45,7 +47,7 @@ bool ResultScene::DecideEnd()const
 {
 
 
-	return ResultScene::DetectEndArea();
+	return isEnd;
 
 
 }

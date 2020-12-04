@@ -24,9 +24,11 @@ TitleScene::~TitleScene()
 void TitleScene::Exec()
 {
 
-	//if (TitleScene::DetectEndArea()) {
+	if (TitleScene::DetectEndArea()) {
+
+		isEnd = true;
 		SceneManager::SetNextScene(SceneID::Preparation);
-	//}
+	}
 }
 
 void TitleScene::Draw()
@@ -38,10 +40,7 @@ void TitleScene::Draw()
 
 bool TitleScene::DecideEnd()const
 {
-	return TitleScene::DetectEndArea();
-
-
-
+	return isEnd;
 }
 
 

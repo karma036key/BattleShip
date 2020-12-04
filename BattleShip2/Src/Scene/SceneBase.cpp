@@ -1,6 +1,7 @@
 #include"SceneBasa.h"
 
 SceneBase::SceneBase()
+	:isEnd{ false }
 {
 
 

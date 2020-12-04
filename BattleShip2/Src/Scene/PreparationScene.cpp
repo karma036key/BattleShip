@@ -28,9 +28,11 @@ PreparationScene::~PreparationScene()
 void PreparationScene::Exec()
 {
 
-//	if (PreparationScene::DetectEndArea())
+	if (PreparationScene::DetectEndArea())
+	{
+		isEnd = true;
 		SceneManager::SetNextScene(SceneID::InGame);
-
+	}
 
 }
 
@@ -48,7 +50,7 @@ bool PreparationScene::DecideEnd()const
 {
 
 
-	return PreparationScene::DetectEndArea();
+	return isEnd;
 
 }
 
