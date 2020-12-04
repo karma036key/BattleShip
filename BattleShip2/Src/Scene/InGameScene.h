@@ -20,7 +20,7 @@ private:
 	const int offset_x;
 	const int offset_y;
 
-
+	class SquareBase* p_square[count_height][count_width];
 
 };
 

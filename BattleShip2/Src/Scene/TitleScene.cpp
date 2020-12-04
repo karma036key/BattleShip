@@ -1,6 +1,7 @@
 #include"TitleScene.h"
 #include"../Manager/SceneManager.h"
 #include"../Manager/InputManager.h"
+#include"../Square/SelectSquare.h"
 #include"DxLib.h"
 
 TitleScene::TitleScene()
@@ -9,7 +10,6 @@ TitleScene::TitleScene()
 	,offset_x{128}
 	,offset_y{64}
 {
-
 
 }
 

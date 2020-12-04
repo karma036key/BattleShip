@@ -2,6 +2,7 @@
 #include"../Manager/SceneManager.h"
 #include"../Manager/InputManager.h"
 #include"../Manager/DrawManager.h"
+#include"../Square/SelectSquare.h"
 #include"DxLib.h"
 
 InGameScene::InGameScene()
@@ -9,15 +10,28 @@ InGameScene::InGameScene()
 	, origin_pos_y{ 0 }
 	, offset_x{ 128 }
 	, offset_y{ 64 }
+	, p_square{ nullptr }
 {
 
-
+	for (int i = 0; i < count_height; i++)
+	{
+		for (int j = 0; j < count_width; j++)
+		{
+			p_square[i][j] = new SelectSquare();
+		}
+	}
 }
 
 InGameScene::~InGameScene()
 {
-
-
+	for (int i = 0; i < count_height; i++)
+	{
+		for (int j = 0; j < count_width; j++)
+		{
+			delete p_square[i][j];
+			p_square[i][j] = nullptr;
+		}
+	}
 
 }
 

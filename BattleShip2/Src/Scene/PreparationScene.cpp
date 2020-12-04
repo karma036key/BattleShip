@@ -4,6 +4,7 @@
 #include"../Manager/DrawManager.h"
 #include"DxLib.h"
 
+#include"../Square/SelectSquare.h"
 
 
 
@@ -12,21 +13,33 @@ PreparationScene::PreparationScene()
 	, origin_pos_y{ 0 }
 	, offset_x{ 128 }
 	, offset_y{ 64 }
+	, p_square{ nullptr }
 {
-
-
+	for (int i = 0; i < count_height; i++)
+	{
+		for (int j = 0; j < count_width; j++)
+		{
+			p_square[i][j] = new SelectSquare();
+		}
+	}
 }
 
 PreparationScene::~PreparationScene()
 {
-
-
-
+	for (int i = 0; i < count_height; i++)
+	{
+		for (int j = 0; j < count_width; j++)
+		{
+			delete p_square[i][j];
+			p_square[i][j] = nullptr;
+		}
+	}
 }
 
 
 void PreparationScene::Exec()
 {
+
 
 	if (PreparationScene::DetectEndArea())
 	{

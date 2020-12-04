@@ -55,7 +55,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	}
 
 	// 管理クラスの後始末
-
+	delete pSceneManager;
+	pSceneManager = nullptr;
 
 
 	// DXライブラリ使用に終了処理

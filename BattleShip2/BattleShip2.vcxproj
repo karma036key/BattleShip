@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Manager\DataManager.cpp" />
     <ClCompile Include="Src\Manager\DrawManager.cpp" />
     <ClCompile Include="Src\Manager\InputManager.cpp" />
     <ClCompile Include="Src\Manager\SceneManager.cpp" />
@@ -159,10 +160,14 @@
     <ClCompile Include="Src\Scene\ResultScene.cpp" />
     <ClCompile Include="Src\Scene\SceneBase.cpp" />
     <ClCompile Include="Src\Scene\TitleScene.cpp" />
+    <ClCompile Include="Src\Square\SelectSquare.cpp" />
+    <ClCompile Include="Src\Square\ShipSquare.cpp" />
+    <ClCompile Include="Src\Square\SquareBase.cpp" />
     <ClCompile Include="Src\WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Definition.h" />
+    <ClInclude Include="Src\Manager\DataManager.h" />
     <ClInclude Include="Src\Manager\DrawManager.h" />
     <ClInclude Include="Src\Manager\InputManager.h" />
     <ClInclude Include="Src\Manager\SceneManager.h" />
@@ -171,6 +176,9 @@
     <ClInclude Include="Src\Scene\ResultScene.h" />
     <ClInclude Include="Src\Scene\SceneBasa.h" />
     <ClInclude Include="Src\Scene\TitleScene.h" />
+    <ClInclude Include="Src\Square\SelectSquare.h" />
+    <ClInclude Include="Src\Square\ShipSquare.h" />
+    <ClInclude Include="Src\Square\SquareBase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

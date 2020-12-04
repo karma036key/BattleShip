@@ -18,7 +18,6 @@ enum class SceneID
 
 enum class SquareID
 {
-	NONE,
 	HIT,
 	OFF,
 };
@@ -34,7 +33,8 @@ struct SquareState
 	SquareID square;
 };
 
-
+const int count_width = 10;
+const int count_height = 10;
 
 
 #endif

@@ -5,6 +5,8 @@ int Input::button;
 int Input::mouse_x;
 int Input::mouse_y;
 int Input::log_type;
+bool Input::isHold = false;
+bool Input::isRelease = true;
 
 Input::Input()
 {
@@ -67,6 +69,19 @@ bool Input::DetectRelease()
 			}
 	}
 	return false;
+
+}
+
+void Input::DetectDrag()
+{
+
+	if (DetectClick())
+		isHold = true;
+
+
+	if (DetectRelease())
+		isHold = false;
+
 
 }
 

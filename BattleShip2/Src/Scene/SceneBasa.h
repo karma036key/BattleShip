@@ -1,5 +1,6 @@
 #ifndef SCENEBASE_H
 #define SCENEBASE_H
+#include"../Definition.h"
 
 class SceneBase
 {
