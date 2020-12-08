@@ -1,9 +1,9 @@
 #include"DataManager.h"
 
 
-SquareState Data::status;
+SquareState* DataManager::status;
 
-Data::Data()
+DataManager::DataManager()
 {
 
 
@@ -11,7 +11,7 @@ Data::Data()
 }
 
 
-Data::~Data()
+DataManager::~DataManager()
 {
 
 
@@ -19,7 +19,7 @@ Data::~Data()
 }
 
 
-void Data::ReceiveData(SquareState status_array)
+void DataManager::ReceiveData(SquareState* status_array)
 {
 	status = status_array;
 
@@ -28,7 +28,7 @@ void Data::ReceiveData(SquareState status_array)
 }
 
 
-SquareState Data::PassData()
+SquareState* DataManager::PassData()
 {
 	return status;
 

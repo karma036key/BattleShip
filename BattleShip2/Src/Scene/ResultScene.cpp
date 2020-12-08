@@ -1,6 +1,7 @@
 #include"ResultScene.h"
 #include"../Manager/SceneManager.h"
 #include"../Manager/InputManager.h"
+#include"../Manager/DrawManager.h"
 #include"DxLib.h"
 
 
@@ -38,7 +39,7 @@ void ResultScene::Exec()
 void ResultScene::Draw()
 {
 
-	LoadGraphScreen(origin_pos_x, origin_pos_y, "Src/Title.png", false);
+	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGraph("Src/Draw/Title.png"), false);
 
 }
 

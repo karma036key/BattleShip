@@ -2,17 +2,17 @@
 #define DATAMANAGER_H
 #include"../Definition.h"
 
-class Data
+class DataManager
 {
 public:
-	Data();
-	~Data();
+	DataManager();
+	~DataManager();
 
-	static void ReceiveData(SquareState status_array);
-	static SquareState PassData();
+	static void ReceiveData(SquareState* status_array);
+	static SquareState* PassData();
 
 private:
-	static SquareState status;
+	static SquareState* status;// [count_height] [count_width] ;
 
 
 };

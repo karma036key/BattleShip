@@ -7,7 +7,6 @@
 #include"../Square/SelectSquare.h"
 
 
-
 PreparationScene::PreparationScene()
 	:origin_pos_x{ 0 }
 	, origin_pos_y{ 0 }
@@ -51,10 +50,8 @@ void PreparationScene::Exec()
 
 void PreparationScene::Draw()
 {
-	Draw::DrawFrame();
-	Draw::DrawSquare(101, 101, SquareID::OFF);
-	Draw::DrawSquare(134, 134, SquareID::HIT);
-	LoadGraphScreen(origin_pos_x, origin_pos_y, "Src/InGame.png", false);
+	DrawManager::DrawFrame();
+	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGraph("Src/Draw/InGame.png"), false);
 
 }
 

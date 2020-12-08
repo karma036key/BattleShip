@@ -2,17 +2,25 @@
 #define DRAWMANAGER_H
 #include"../Definition.h"
 
-class Draw
+class DrawManager
 {
 public:
-	Draw();
-	~Draw();
+	DrawManager();
+	~DrawManager();
 
 	static void DrawFrame();
-	static void DrawSquare(int pos_x, int pos_y, SquareID square);
-
-
-
+	static void DrawFade();
+	static void LoadAllGraph();
+	static void DeleteAllGraph();
+	static int PassGraph(const char* filename);
+private:
+	static int Handle_Title;
+	static int Handle_Preparation;
+	static int Handle_InGame;
+	static int Handle_Result;
+	static int Handle_NONE;
+	static int Handle_HIT;
+	static int Handle_OFF;
 };
 
 

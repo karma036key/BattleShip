@@ -7,7 +7,7 @@ class ResultScene :public SceneBase
 {
 public:
 	ResultScene();
-	~ResultScene();
+	virtual ~ResultScene();
 
 	virtual void Exec();
 	virtual void Draw();

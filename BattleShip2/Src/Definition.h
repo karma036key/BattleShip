@@ -18,6 +18,7 @@ enum class SceneID
 
 enum class SquareID
 {
+	NONE,
 	HIT,
 	OFF,
 };

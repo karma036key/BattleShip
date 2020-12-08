@@ -2,8 +2,10 @@
 #include"../Manager/SceneManager.h"
 #include"../Manager/InputManager.h"
 #include"../Manager/DrawManager.h"
+#include"../Manager/DataManager.h"
 #include"../Square/SelectSquare.h"
 #include"DxLib.h"
+
 
 InGameScene::InGameScene()
 	:origin_pos_x{ 0 }
@@ -38,8 +40,15 @@ InGameScene::~InGameScene()
 
 void InGameScene::Exec()
 {
+	for (int i = 0; i < count_height; i++)
+	{
+		for (int j = 0; j < count_width; j++)
+		{
+			//if(p_square[i][j]->DetectDragArea(101 + j * 33, 101 + i * 33)&&Input::GetLogType()== MOUSE_INPUT_LOG_DOWN)
+			//p_square[i][j]->ConvertIsDrag();
 
-
+		}
+	}
 	if (InGameScene::DetectEndArea())
 	{
 		isEnd = true;
@@ -50,9 +59,15 @@ void InGameScene::Exec()
 
 void InGameScene::Draw()
 {
-	Draw::DrawFrame();
-	LoadGraphScreen(origin_pos_x, origin_pos_y, "Src/Result.png", false);
-
+	DrawManager::DrawFrame();
+	for (int i = 0; i < count_height; i++)
+	{
+		for (int j = 0; j < count_width; j++)
+		{
+			p_square[i][j]->Draw(151+j*33,21+i*33,SquareID::OFF);
+		}
+	}
+	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGraph("Src/Draw/Result.png"), false);
 }
 
 
@@ -77,5 +92,15 @@ bool InGameScene::DetectEndArea()const
 }
 
 
-
+//bool InGameScene::DetectEndArea2()const
+//{
+//	if (Input::DetectClick()) {
+//		if ((origin_pos_x<Input::GetMousePosX() && (origin_pos_x + offset_x)>Input::GetMousePosX())
+//			&& (origin_pos_y<Input::GetMousePosY() && (origin_pos_y + offset_y)>Input::GetMousePosY()))
+//		{
+//			return true;
+//		}
+//	}
+//	return false;
+//}
 

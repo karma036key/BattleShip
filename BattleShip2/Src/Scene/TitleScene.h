@@ -6,7 +6,7 @@ class TitleScene :public SceneBase
 {
 public:
 	TitleScene();
-	~TitleScene();
+	virtual ~TitleScene();
 
 	virtual void Exec();
 	virtual void Draw();

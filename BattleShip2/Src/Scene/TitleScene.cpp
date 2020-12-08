@@ -1,8 +1,10 @@
 #include"TitleScene.h"
 #include"../Manager/SceneManager.h"
 #include"../Manager/InputManager.h"
+#include"../Manager/DrawManager.h"
 #include"../Square/SelectSquare.h"
 #include"DxLib.h"
+
 
 TitleScene::TitleScene()
 	:origin_pos_x{0}
@@ -33,7 +35,7 @@ void TitleScene::Exec()
 
 void TitleScene::Draw()
 {
-	LoadGraphScreen(origin_pos_x, origin_pos_y, "Src/Preparation.png", false);
+	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGraph("Src/Draw/Preparation.png"), false);
 
 }
 
@@ -48,7 +50,6 @@ bool TitleScene::DetectEndArea()const
 {
 
 	if (Input::DetectClick()) {
-
 		if ((origin_pos_x<Input::GetMousePosX() && (origin_pos_x + offset_x)>Input::GetMousePosX())
 			&& (origin_pos_y<Input::GetMousePosY() && (origin_pos_y + offset_y)>Input::GetMousePosY()))
 		{

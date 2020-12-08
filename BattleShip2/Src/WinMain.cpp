@@ -1,12 +1,13 @@
 #include"DxLib.h"
 #include"Manager/SceneManager.h"
+#include"Manager/DrawManager.h"
 
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
 {
 	SetOutApplicationLogValidFlag(false);
 	ChangeWindowMode(true);
-	SetGraphMode(640, 480, 32);
+	SetGraphMode(640, 360, 32);
 	SetBackgroundColor(125, 125, 125);
 	SetMainWindowText("BattleShip");
 
@@ -24,7 +25,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// 管理クラスの作成
 	SceneManager* pSceneManager = new SceneManager();
 
-
+	DrawManager::LoadAllGraph();
 
 
 	while (true)
@@ -57,7 +58,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// 管理クラスの後始末
 	delete pSceneManager;
 	pSceneManager = nullptr;
-
+	DrawManager::DeleteAllGraph();
 
 	// DXライブラリ使用に終了処理
 	DxLib_End();

@@ -6,12 +6,13 @@ class SelectSquare :public SquareBase
 {
 public:
 	SelectSquare();
-	~SelectSquare();
+	virtual ~SelectSquare();
 
-	void Draw(int origin_x,int origin_y,SquareID square);
+	virtual void Draw(int origin_x,int origin_y,SquareID square)const;
 
-	void Confirmation();
 
+private:
+	bool isDrag;
 
 };
 

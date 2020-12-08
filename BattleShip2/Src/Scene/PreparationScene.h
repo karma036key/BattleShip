@@ -6,7 +6,7 @@ class PreparationScene :public SceneBase
 {
 public:
 	PreparationScene();
-	~PreparationScene();
+	virtual ~PreparationScene();
 
 	virtual void Exec();
 	virtual void Draw();

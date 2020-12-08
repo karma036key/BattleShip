@@ -1,6 +1,15 @@
 #include"DrawManager.h"
 #include"DxLib.h"
-Draw::Draw()
+
+int DrawManager::Handle_Title;
+int DrawManager::Handle_Preparation;
+int DrawManager::Handle_InGame;
+int DrawManager::Handle_Result;
+int DrawManager::Handle_NONE;
+int DrawManager::Handle_HIT;
+int DrawManager::Handle_OFF;
+
+DrawManager::DrawManager()
 {
 
 
@@ -10,7 +19,7 @@ Draw::Draw()
 
 
 
-Draw::~Draw()
+DrawManager::~DrawManager()
 {
 
 
@@ -19,13 +28,13 @@ Draw::~Draw()
 
 
 
-void Draw::DrawFrame()
+void DrawManager::DrawFrame()
 {
 
-	const int left = 100;
-	const int right = 100 + (33 * 10);
-	const int top = 100;
-	const int bottom = 100 + (33 * 10);
+	const int left = 150;
+	const int right = 150 + (33 * 10);
+	const int top = 20;
+	const int bottom = 20 + (33 * 10);
 	for (int i = 0; i <= 10; i++)
 	{
 		DrawLine(left + i * 33, top, left + i * 33, bottom, GetColor(0xFF, 0xFF, 0xFF));
@@ -37,15 +46,60 @@ void Draw::DrawFrame()
 
 }
 
-void Draw::DrawSquare(int pos_x, int pos_y, SquareID square)
+
+
+
+void DrawManager::DrawFade()
 {
-	switch (square)
-	{
-	case SquareID::OFF:
-		LoadGraphScreen(pos_x, pos_y, "Src/off.png", false); break;
-	case SquareID::HIT:
-		LoadGraphScreen(pos_x, pos_y, "Src/hit.png", false); break;
-	}
 
 
+}
+
+void DrawManager::LoadAllGraph()
+{
+	Handle_Title = LoadGraph("Src/Draw/Title.png");
+	Handle_Preparation = LoadGraph("Src/Draw/Preparation.png");	
+	Handle_InGame = LoadGraph("Src/Draw/InGame.png");
+	Handle_Result = LoadGraph("Src/Draw/Result.png");
+	Handle_NONE = LoadGraph("Src/Draw/none.png");
+	Handle_HIT = LoadGraph("Src/Draw/hit.png");
+	Handle_OFF = LoadGraph("Src/Draw/off.png");
+}
+
+
+
+void DrawManager::DeleteAllGraph()
+{
+	DeleteGraph(Handle_Title);
+	DeleteGraph(Handle_Preparation);
+	DeleteGraph(Handle_InGame);
+	DeleteGraph(Handle_Result);
+	DeleteGraph(Handle_NONE);
+	DeleteGraph(Handle_HIT);
+	DeleteGraph(Handle_OFF);
+
+
+
+}
+
+
+
+int DrawManager::PassGraph(const char* filename)
+{
+	if(filename== "Src/Draw/Title.png")
+	return Handle_Title;
+	if (filename == "Src/Draw/Preparation.png")
+		return Handle_Preparation;
+	if (filename == "Src/Draw/InGame.png")
+		return Handle_InGame;
+	if (filename == "Src/Draw/Result.png")
+		return Handle_Result;
+	if (filename == "Src/Draw/none.png")
+		return Handle_NONE;
+	if (filename == "Src/Draw/hit.png")
+		return Handle_HIT;
+	if (filename == "Src/Draw/off.png")
+		return Handle_OFF;
+
+	return 0;
 }

@@ -20,8 +20,12 @@ SquareBase::~SquareBase()
 }
 
 
-
-
+//void SquareBase::Draw(int origin_x, int origin_y, SquareID square)
+//{
+//
+//
+//
+//}
 
 
 
