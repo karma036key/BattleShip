@@ -41,7 +41,7 @@ void ResultScene::Exec()
 void ResultScene::Draw()
 {
 
-	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGraph("Src/Draw/Title.png"), false);
+	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGHandle("Src/Draw/Title.png"), false);
 
 }
 

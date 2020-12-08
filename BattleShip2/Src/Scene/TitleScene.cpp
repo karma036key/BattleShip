@@ -36,7 +36,7 @@ void TitleScene::Exec()
 
 void TitleScene::Draw()
 {
-	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGraph("Src/Draw/Preparation.png"), false);
+	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGHandle("Src/Draw/Preparation.png"), false);
 
 }
 

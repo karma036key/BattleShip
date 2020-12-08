@@ -1,5 +1,5 @@
 #include"SceneManager.h"
-
+#include"DrawManager.h"
 #include"../Scene/SceneBasa.h"
 #include"../Scene/TitleScene.h"
 #include"../Scene/PreparationScene.h"
@@ -39,6 +39,7 @@ void SceneManager::Exec()
 
 void SceneManager::Draw()
 {
+	DrawManager::DrawBackGround();
 	if (p_scene == nullptr) { return; }
 
 	p_scene->Draw();

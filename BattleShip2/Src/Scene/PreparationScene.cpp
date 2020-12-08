@@ -14,6 +14,7 @@ PreparationScene::PreparationScene()
 	, offset_x{ 128 }
 	, offset_y{ 64 }
 	, p_square{ nullptr }
+	,p_ship{nullptr}
 {
 	for (int i = 0; i < count_height; i++)
 	{
@@ -70,7 +71,9 @@ void PreparationScene::Exec()
 void PreparationScene::Draw()
 {
 	DrawManager::DrawFrame();
-	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGraph("Src/Draw/InGame.png"), false);
+	p_ship[0]->Draw(167, 53, SquareID::NONE);
+//	p_ship[0]->Draw(167, 69, SquareID::NONE);
+	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGHandle("Src/Draw/InGame.png"), false);
 
 }
 

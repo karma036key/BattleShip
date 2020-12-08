@@ -6,6 +6,8 @@ int Input::mouse_x;
 int Input::mouse_y;
 int Input::drag_mouse_x;
 int Input::drag_mouse_y;
+int Input::click_mouse_x;
+int Input::click_mouse_y;
 int Input::log_type;
 int Input::log_type2;
 bool Input::isHold = false;
@@ -54,6 +56,8 @@ bool Input::DetectClick()
 			if (log_type == MOUSE_INPUT_LOG_DOWN)
 			{
 				SetLogType(log_type);
+				SetClickMousePosX(mouse_x);
+				SetClickMousePosY(mouse_y);
 				return true;
 			}
 		}
@@ -79,15 +83,15 @@ bool Input::DetectRelease()
 
 }
 
-void Input::DetectDrag(bool& isHold)
+bool Input::DetectDrag()
 {
 
 	if (GetMouseInput()==MOUSE_INPUT_LEFT)
 	{
-		isHold = true;
+		return true;
 	}
 	else
-		isHold = false;
+		return false;
 }
 
 bool Input::DetectClickForDrag(int origin_x, int origin_y)
@@ -144,8 +148,27 @@ int Input::GetDragMousePosY()
 {
 	GetMousePoint(&drag_mouse_x, &drag_mouse_y);
 	return drag_mouse_y;
+}
+
+int Input::GetClickMousePosX()
+{
+	return click_mouse_x;
+}
 
 
+int Input::GetClickMousePosY()
+{
+	return click_mouse_y;
+}
+
+void Input::SetClickMousePosX(int mouse)
+{
+	click_mouse_x = mouse;
+}
+
+void Input::SetClickMousePosY(int mouse)
+{
+	click_mouse_y = mouse;
 }
 
 void Input::SetLogType(int log_type)

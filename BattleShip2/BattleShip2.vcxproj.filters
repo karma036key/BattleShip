@@ -55,11 +55,11 @@
     <ClCompile Include="Src\Square\SelectSquare.cpp">
       <Filter>ソース ファイル\Square</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Square\ShipSquare.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Manager\DataManager.cpp">
       <Filter>ソース ファイル\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Square\ShipSquare.cpp">
+      <Filter>ソース ファイル\Square</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -96,9 +96,11 @@
     <ClInclude Include="Src\Square\SelectSquare.h">
       <Filter>ソース ファイル\Square</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Square\ShipSquare.h" />
     <ClInclude Include="Src\Manager\DataManager.h">
       <Filter>ソース ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Square\ShipSquare.h">
+      <Filter>ソース ファイル\Square</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

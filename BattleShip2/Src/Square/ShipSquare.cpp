@@ -1,5 +1,6 @@
 #include"ShipSquare.h"
 #include"../Manager/InputManager.h"
+#include"../Manager/DrawManager.h"
 #include"DxLib.h"
 
 
@@ -24,27 +25,30 @@ ShipSquare::~ShipSquare()
 
 
 
-void ShipSquare::Draw(int origin_x, int origin_y, SquareID square)const
+void ShipSquare::Draw(int origin_x, int origin_y,SquareID square)const
 {
-	if (isDrag) {
-			LoadGraphScreen(Input::GetDragMousePosX(), Input::GetDragMousePosY(), "Src/Draw/off.png", false);
-		
+	if (Input::DetectDrag()) {
+			DrawRotaGraph(Input::GetDragMousePosX()-(Input::GetClickMousePosX()-origin_x), Input::GetDragMousePosY()-( Input::GetClickMousePosY()-origin_y), 1.0,0,DrawManager::PassGHandle("Src/Draw/2ship.png"), false);
 	}
 	else {
 
-			LoadGraphScreen(origin_x, origin_y, "Src/Draw/off.png", false); 
-
+			DrawRotaGraph(origin_x, origin_y,1.0,0, DrawManager::PassGHandle("Src/Draw/2ship.png"),  false);
 		
 	}
 }
 
-
-
-void ShipSquare::ConvertIsDrag()
+void ShipSquare::DetectDragForClick()
 {
-	Input::DetectDrag(isDrag);
+
+
 
 }
+
+//void ShipSquare::ConvertIsDrag()
+//{
+//	Input::DetectDrag(isDrag);
+//
+//}
 
 
 

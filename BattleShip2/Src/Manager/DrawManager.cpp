@@ -12,6 +12,7 @@ int DrawManager::Handle_SHIP2;
 int DrawManager::Handle_SHIP3;
 int DrawManager::Handle_SHIP4;
 int DrawManager::Handle_SHIP5;
+int DrawManager::Handle_BackGround;
 
 DrawManager::DrawManager()
 {
@@ -29,7 +30,11 @@ DrawManager::~DrawManager()
 
 }
 
+void DrawManager::DrawBackGround()
+{
+	DrawGraph(0, 0, DrawManager::PassGHandle("Src/Draw/BackGround.png"),false);
 
+}
 
 
 void DrawManager::DrawFrame()
@@ -72,6 +77,7 @@ void DrawManager::LoadAllGraph()
 	Handle_SHIP3 = LoadGraph("Src/Draw/3ship.png");
 	Handle_SHIP4 = LoadGraph("Src/Draw/4ship.png");
 	Handle_SHIP5 = LoadGraph("Src/Draw/5ship.png");
+	Handle_BackGround = LoadGraph("Src/Draw/BackGround.png");
 }
 
 
@@ -89,11 +95,12 @@ void DrawManager::DeleteAllGraph()
 	DeleteGraph(Handle_SHIP3);
 	DeleteGraph(Handle_SHIP4);
 	DeleteGraph(Handle_SHIP5);
+	DeleteGraph(Handle_BackGround);
 }
 
 
 
-int DrawManager::PassGraph(const char* filename)
+int DrawManager::PassGHandle(const char* filename)
 {
 	if(filename== "Src/Draw/Title.png")
 	return Handle_Title;
@@ -117,6 +124,8 @@ int DrawManager::PassGraph(const char* filename)
 		return Handle_SHIP4;
 	if (filename == "Src/Draw/5ship.png")
 		return Handle_SHIP5;
+	if (filename == "Src/Draw/BackGround.png")
+		return Handle_BackGround;
 
 	return 0;
 }

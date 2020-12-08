@@ -69,7 +69,7 @@ void InGameScene::Draw()
 			p_square[i][j]->Draw(151+j*33,21+i*33,SquareID::OFF);
 		}
 	}
-	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGraph("Src/Draw/Result.png"), false);
+	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGHandle("Src/Draw/Result.png"), false);
 }
 
 
