@@ -23,7 +23,7 @@ private:
 	const int offset_y;
 
 	class SquareBase* p_square[count_height][count_width];
-
+	class SquareBase* p_ship[7];
 };
 
 

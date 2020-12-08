@@ -4,7 +4,6 @@
 #include"DxLib.h"
 
 SelectSquare::SelectSquare()
-	:isDrag{ false }
 {
 
 

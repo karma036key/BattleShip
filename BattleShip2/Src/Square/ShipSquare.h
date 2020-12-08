@@ -10,7 +10,6 @@ public:
 
 	virtual void Draw(int origin_x, int origin_y, SquareID square)const;
 	void ConvertIsDrag();
-	bool DetectDragArea(int origin_x, int origin_y)const;
 
 private:
 	bool isDrag;

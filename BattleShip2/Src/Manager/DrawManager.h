@@ -21,6 +21,10 @@ private:
 	static int Handle_NONE;
 	static int Handle_HIT;
 	static int Handle_OFF;
+	static int Handle_SHIP2;
+	static int Handle_SHIP3;
+	static int Handle_SHIP4;
+	static int Handle_SHIP5;
 };
 
 

@@ -8,6 +8,10 @@ int DrawManager::Handle_Result;
 int DrawManager::Handle_NONE;
 int DrawManager::Handle_HIT;
 int DrawManager::Handle_OFF;
+int DrawManager::Handle_SHIP2;
+int DrawManager::Handle_SHIP3;
+int DrawManager::Handle_SHIP4;
+int DrawManager::Handle_SHIP5;
 
 DrawManager::DrawManager()
 {
@@ -64,6 +68,10 @@ void DrawManager::LoadAllGraph()
 	Handle_NONE = LoadGraph("Src/Draw/none.png");
 	Handle_HIT = LoadGraph("Src/Draw/hit.png");
 	Handle_OFF = LoadGraph("Src/Draw/off.png");
+	Handle_SHIP2 = LoadGraph("Src/Draw/2ship.png");
+	Handle_SHIP3 = LoadGraph("Src/Draw/3ship.png");
+	Handle_SHIP4 = LoadGraph("Src/Draw/4ship.png");
+	Handle_SHIP5 = LoadGraph("Src/Draw/5ship.png");
 }
 
 
@@ -77,9 +85,10 @@ void DrawManager::DeleteAllGraph()
 	DeleteGraph(Handle_NONE);
 	DeleteGraph(Handle_HIT);
 	DeleteGraph(Handle_OFF);
-
-
-
+	DeleteGraph(Handle_SHIP2);
+	DeleteGraph(Handle_SHIP3);
+	DeleteGraph(Handle_SHIP4);
+	DeleteGraph(Handle_SHIP5);
 }
 
 
@@ -100,6 +109,14 @@ int DrawManager::PassGraph(const char* filename)
 		return Handle_HIT;
 	if (filename == "Src/Draw/off.png")
 		return Handle_OFF;
+	if (filename == "Src/Draw/2ship.png")
+		return Handle_SHIP2;
+	if (filename == "Src/Draw/3ship.png")
+		return Handle_SHIP3;
+	if (filename == "Src/Draw/4ship.png")
+		return Handle_SHIP4;
+	if (filename == "Src/Draw/5ship.png")
+		return Handle_SHIP5;
 
 	return 0;
 }

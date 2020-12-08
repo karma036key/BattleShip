@@ -23,6 +23,13 @@ enum class SquareID
 	OFF,
 };
 
+enum class ShipID
+{
+	SHIP2,
+	SHIP3,
+	SHIP4,
+	SHIP5,
+};
 
 
 struct SquareState

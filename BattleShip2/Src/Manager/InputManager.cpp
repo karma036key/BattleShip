@@ -90,6 +90,16 @@ void Input::DetectDrag(bool& isHold)
 		isHold = false;
 }
 
+bool Input::DetectClickForDrag(int origin_x, int origin_y)
+{
+	if ((origin_x < Input::GetDragMousePosX() && Input::GetDragMousePosX() < origin_x + 32) &&
+		(origin_y < Input::GetDragMousePosY() && Input::GetDragMousePosY() < origin_y + 32))
+	{
+		return true;
+	}
+	return false;
+}
+
 
 int Input::GetMousePosX()
 { return mouse_x; }

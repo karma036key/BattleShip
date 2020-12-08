@@ -5,6 +5,7 @@
 #include"DxLib.h"
 
 #include"../Square/SelectSquare.h"
+#include"../Square/ShipSquare.h"
 
 
 PreparationScene::PreparationScene()
@@ -21,6 +22,10 @@ PreparationScene::PreparationScene()
 			p_square[i][j] = new SelectSquare();
 		}
 	}
+	for (int i = 0; i < 7; i++)
+	{
+		p_ship[i] = new ShipSquare();
+	}
 }
 
 PreparationScene::~PreparationScene()
@@ -33,13 +38,25 @@ PreparationScene::~PreparationScene()
 			p_square[i][j] = nullptr;
 		}
 	}
+	for (int i = 0; i < 7; i++)
+	{
+		delete p_ship[i];
+		p_ship[i] = nullptr;
+	}
 }
 
 
 void PreparationScene::Exec()
 {
+	for (int i = 0; i < count_height; i++)
+	{
+		for (int j = 0; j < count_width; j++)
+		{
+			//if(p_square[i][j]->DetectDragArea(101 + j * 33, 101 + i * 33)&&Input::GetLogType()== MOUSE_INPUT_LOG_DOWN)
+			//p_square[i][j]->ConvertIsDrag();
 
-
+		}
+	}
 	if (PreparationScene::DetectEndArea())
 	{
 		isEnd = true;
