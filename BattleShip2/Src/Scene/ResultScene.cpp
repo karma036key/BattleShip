@@ -27,7 +27,9 @@ ResultScene::~ResultScene()
 
 void ResultScene::Exec()
 {
-	if (ResultScene::DetectEndArea())
+	DetectClickArea();
+
+	if (isTrans)
 	{
 		isEnd = true;
 		SceneManager::SetNextScene(SceneID::Title);
@@ -54,14 +56,14 @@ bool ResultScene::DecideEnd()const
 }
 
 
-bool ResultScene::DetectEndArea()const
+void ResultScene::DetectClickArea()
 {
+
 	if (Input::DetectClick()) {
 		if ((origin_pos_x<Input::GetMousePosX() && (origin_pos_x + offset_x)>Input::GetMousePosX())
 			&& (origin_pos_y<Input::GetMousePosY() && (origin_pos_y + offset_y)>Input::GetMousePosY()))
 		{
-			return true;
+			isTrans = true;
 		}
 	}
-	return false;
 }

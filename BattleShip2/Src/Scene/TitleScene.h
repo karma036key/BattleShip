@@ -13,7 +13,7 @@ public:
 
 	virtual bool DecideEnd()const;
 
-	virtual bool DetectEndArea()const;
+	virtual void DetectClickArea();
 
 private:
 	const int origin_pos_x;

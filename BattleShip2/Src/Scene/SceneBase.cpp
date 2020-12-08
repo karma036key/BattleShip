@@ -2,6 +2,8 @@
 
 SceneBase::SceneBase()
 	:isEnd{ false }
+	,isTrans{false}
+	,isHold{false}
 {
 
 

@@ -15,6 +15,7 @@ public:
 	static bool DetectRelease();
 	static void DetectDrag(bool& isHold);
 	static bool DetectClickForDrag(int origin_x, int origin_y);
+	static bool DetectClickForTransition(int origin_x,int origin_y, int offset_x, int offset_y);
 	static int GetMousePosX();
 	static int GetMousePosY();
 	static int GetDragMousePosX();

@@ -12,7 +12,7 @@ public:
 
 	virtual bool DecideEnd()const;
 
-	virtual bool DetectEndArea()const;
+	virtual void DetectClickArea();
 
 	//bool DetectEndArea2()const;		//DetectEndAreaと同じ内容を書いてlogtype検証。同フレームでは維持されるかと思ったが同メソッド内でしか持たないらしい
 

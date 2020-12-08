@@ -47,7 +47,7 @@ bool Input::DetectClick()
 	//int mouse_x2, mouse_y2;					//入力関係の関数を同フレームでも実行処理できた
 	//GetMousePoint(&mouse_x2, &mouse_y2);		//同じフレームで同じ関数はNG、同フレームで別関数or別フレームで同関数は通る
 
-	if ((GetMouseInputLog2(&button, &mouse_x, &mouse_y, &log_type, true) == 0))
+	if ((GetMouseInputLog2(&button, &mouse_x, &mouse_y, &log_type, TRUE) == 0))
 	{
 
 		if ((button & MOUSE_INPUT_LEFT) != 0) {
@@ -66,7 +66,7 @@ bool Input::DetectClick()
 bool Input::DetectRelease()
 {
 
-	if ((GetMouseInputLog2(&button, &mouse_x, &mouse_y, &log_type, true) == 0))
+	if ((GetMouseInputLog2(&button, &mouse_x, &mouse_y, &log_type, TRUE) == 0))
 	{
 		if ((button & MOUSE_INPUT_LEFT) != 0)
 			if (log_type == MOUSE_INPUT_LOG_UP)
@@ -101,12 +101,35 @@ bool Input::DetectClickForDrag(int origin_x, int origin_y)
 }
 
 
+bool Input::DetectClickForTransition(int origin_x, int origin_y, int offset_x, int offset_y)
+{
+
+	if (Input::DetectClick()) {
+
+		if ((origin_x<Input::GetMousePosX() && (origin_x + offset_x)>Input::GetMousePosX())
+			&& (origin_y<Input::GetMousePosY() && (origin_y + offset_y)>Input::GetMousePosY()))
+		{
+
+			return true;
+		}
+	}
+
+	return false;
+}
+
+
 int Input::GetMousePosX()
-{ return mouse_x; }
+{
+	GetMousePoint(&mouse_x, &mouse_y);
+	return mouse_x; 
+}
 
 
 int Input::GetMousePosY()
-{ return mouse_y; }
+{ 
+	GetMousePoint(&mouse_x, &mouse_y);
+	return mouse_y;
+}
 
 
 

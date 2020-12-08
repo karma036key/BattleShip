@@ -48,6 +48,8 @@ PreparationScene::~PreparationScene()
 
 void PreparationScene::Exec()
 {
+	DetectClickArea();
+
 	for (int i = 0; i < count_height; i++)
 	{
 		for (int j = 0; j < count_width; j++)
@@ -57,7 +59,7 @@ void PreparationScene::Exec()
 
 		}
 	}
-	if (PreparationScene::DetectEndArea())
+	if (isTrans)
 	{
 		isEnd = true;
 		SceneManager::SetNextScene(SceneID::InGame);
@@ -81,16 +83,15 @@ bool PreparationScene::DecideEnd()const
 
 }
 
-bool PreparationScene::DetectEndArea()const
+void PreparationScene::DetectClickArea()
 {
 	if (Input::DetectClick()) {
+
 		if ((origin_pos_x<Input::GetMousePosX() && (origin_pos_x + offset_x)>Input::GetMousePosX())
 			&& (origin_pos_y<Input::GetMousePosY() && (origin_pos_y + offset_y)>Input::GetMousePosY()))
 		{
-
-
-			return true;
+			isTrans = true;
 		}
 	}
-	return false;
+
 }

@@ -40,6 +40,8 @@ InGameScene::~InGameScene()
 
 void InGameScene::Exec()
 {
+	DetectClickArea();
+
 	for (int i = 0; i < count_height; i++)
 	{
 		for (int j = 0; j < count_width; j++)
@@ -49,7 +51,7 @@ void InGameScene::Exec()
 
 		}
 	}
-	if (InGameScene::DetectEndArea())
+	if (isTrans)
 	{
 		isEnd = true;
 		SceneManager::SetNextScene(SceneID::Result);
@@ -79,16 +81,16 @@ bool InGameScene::DecideEnd()const
 
 }
 
-bool InGameScene::DetectEndArea()const
+void InGameScene::DetectClickArea()
 {
+
 	if (Input::DetectClick()) {
 		if ((origin_pos_x<Input::GetMousePosX() && (origin_pos_x + offset_x)>Input::GetMousePosX())
 			&& (origin_pos_y<Input::GetMousePosY() && (origin_pos_y + offset_y)>Input::GetMousePosY()))
 		{
-			return true;
+			isTrans = true;
 		}
 	}
-	return false;
 }
 
 
