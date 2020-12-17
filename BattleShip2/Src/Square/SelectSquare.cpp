@@ -4,6 +4,7 @@
 #include"DxLib.h"
 
 SelectSquare::SelectSquare()
+	:exa{SquareID::NONE}
 {
 
 
@@ -16,9 +17,9 @@ SelectSquare::~SelectSquare()
 }
 
 
-void SelectSquare::Draw(int origin_x, int origin_y, SquareID square)const
+void SelectSquare::Draw(int origin_x, int origin_y)const
 {
-	switch (square)
+	switch (exa)
 	{
 	case SquareID::OFF:
 		DrawGraph(origin_x, origin_y, DrawManager::PassGHandle("Src/Draw/off.png"), false); break;
@@ -26,10 +27,16 @@ void SelectSquare::Draw(int origin_x, int origin_y, SquareID square)const
 	case SquareID::HIT:
 		DrawGraph(origin_x, origin_y, DrawManager::PassGHandle("Src/Draw/hit.png"), false); break;
 		break;
+	case SquareID::NONE:
+		DrawGraph(origin_x, origin_y, DrawManager::PassGHandle("Src/Draw/none.png"), false); break;
+		break;
 	}
 }
 
 
-
+void SelectSquare::ChangeSquareTarget()
+{
+	exa = SquareID::HIT;
+}
 
 

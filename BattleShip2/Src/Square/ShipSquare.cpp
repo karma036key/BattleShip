@@ -6,6 +6,7 @@
 
 ShipSquare::ShipSquare()
 	:isDrag{false}
+	,isValid{false}
 	, tmpPosX{167}
 	, tmpPosY{53}
 {
@@ -99,7 +100,8 @@ void ShipSquare::Draw(int init_x, int init_y,ShipID ship)const
 
 void ShipSquare::DetectShipArea()
 {
-
+	//if (((tmpPosX - 12) < Input::GetMousePosX() && Input::GetMousePosX() < (tmpPosX + 12)) && ((tmpPosY - 32) < Input::GetMousePosY() && Input::GetMousePosY() < (tmpPosY + 32)))
+	//	isValid = true;
 }
 
 //void ShipSquare::DetectClickForDrag()

@@ -30,6 +30,7 @@ public:
 
 private:
 	bool isDrag;
+	bool isValid;
 	int tmpPosX;
 	int tmpPosY;
 };

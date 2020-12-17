@@ -1,8 +1,6 @@
 #include"DataManager.h"
 
 
-SquareState* DataManager::status;
-
 DataManager::DataManager()
 {
 
@@ -19,18 +17,18 @@ DataManager::~DataManager()
 }
 
 
-void DataManager::ReceiveData(SquareState* status_array)
+void DataManager::ReceiveData(const ShipSquare& status)
 {
-	status = status_array;
-
+	targetPosX=status.GetReleasePosXForDraw();
+	targetPosY=status.GetReleasePosYForDraw();
 
 
 }
 
 
-SquareState* DataManager::PassData()
+SquareState DataManager::PassData()
 {
-	return status;
+	return {0,0,targetPosX,targetPosY,SquareID::NONE,ShipID::SHIP2};
 
 
 }

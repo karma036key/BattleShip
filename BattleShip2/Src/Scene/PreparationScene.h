@@ -1,6 +1,7 @@
 #ifndef PREPARATIONSCENE_H
 #define PREPARATIONSCENE_H
 #include"SceneBasa.h"
+#include"../Manager/DataManager.h"
 
 class PreparationScene :public SceneBase
 {
@@ -23,6 +24,7 @@ private:
 	const int offset_y;
 	bool isTouch;
 
+	DataManager* pDataMng;
 	class SelectSquare* p_square[count_height][count_width];
 	class ShipSquare* p_ship[7];
 

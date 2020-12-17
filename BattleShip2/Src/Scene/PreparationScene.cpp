@@ -14,6 +14,7 @@ PreparationScene::PreparationScene()
 	, offset_x{ 128 }
 	, offset_y{ 64 }
 	,isTouch{false}
+	,pDataMng{DataManager::GetInstance()}
 	, p_square{ nullptr }
 	,p_ship{nullptr}
 {
@@ -32,6 +33,7 @@ PreparationScene::PreparationScene()
 
 PreparationScene::~PreparationScene()
 {
+	pDataMng->ReceiveData(*p_ship[0]);
 	for (int i = 0; i < count_height; i++)
 	{
 		for (int j = 0; j < count_width; j++)
@@ -73,13 +75,13 @@ void PreparationScene::Exec()
 void PreparationScene::Draw()
 {
 	DrawManager::DrawFrame();
-	p_ship[0]->Draw(167, 53, ShipID::SHIP2);
+	p_ship[0]->Draw(167, 53, ShipID::SHIP2);/*
 	p_ship[1]->Draw(167, 53, ShipID::SHIP3);
 	p_ship[2]->Draw(167, 53, ShipID::SHIP4);
 	p_ship[3]->Draw(167, 53, ShipID::SHIP5);
 	p_ship[4]->Draw(167, 53, ShipID::SHIP2);
 	p_ship[5]->Draw(167, 53, ShipID::SHIP2);
-	p_ship[6]->Draw(167, 53, ShipID::SHIP2);
+	p_ship[6]->Draw(167, 53, ShipID::SHIP2);*/
 	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGHandle("Src/Draw/InGame.png"), false);
 
 }

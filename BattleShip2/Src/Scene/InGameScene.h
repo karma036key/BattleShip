@@ -1,6 +1,7 @@
 #ifndef INGAMESCENE_H
 #define INGAMESCENE_H
 #include"SceneBasa.h"
+#include"../Manager/DataManager.h"
 class InGameScene :public SceneBase
 {
 public:
@@ -23,7 +24,8 @@ private:
 	const int offset_y;
 
 	class SelectSquare* p_square[count_height][count_width];
-
+	DataManager* pDataMng;
+	SquareState tmp_state;
 };
 
 #endif

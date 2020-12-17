@@ -1,19 +1,23 @@
 #ifndef DATAMANAGER_H
 #define DATAMANAGER_H
 #include"../Definition.h"
+#include"../Singleton.h"
+#include"../Square/ShipSquare.h"
+#include"../Square/SelectSquare.h"
 
-class DataManager
+class DataManager :public Singleton<DataManager>
 {
 public:
 	DataManager();
 	~DataManager();
 
-	static void ReceiveData(SquareState* status_array);
-	static SquareState* PassData();
+	void ReceiveData(const ShipSquare& status);
+	SquareState PassData();
 
 private:
-	static SquareState* status;// [count_height] [count_width] ;
-
+	ShipSquare ship;
+	int targetPosX;
+	int targetPosY;
 
 };
 

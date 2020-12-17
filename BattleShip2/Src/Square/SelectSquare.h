@@ -8,10 +8,11 @@ public:
 	SelectSquare();
 	virtual ~SelectSquare();
 
-	virtual void Draw(int origin_x,int origin_y,SquareID square)const;
-
+	virtual void Draw(int origin_x,int origin_y)const;
+	void ChangeSquareTarget();
 
 private:
+	SquareID exa;
 };
 
 

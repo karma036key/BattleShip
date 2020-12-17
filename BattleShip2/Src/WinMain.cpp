@@ -1,6 +1,7 @@
 #include"DxLib.h"
 #include"Manager/SceneManager.h"
 #include"Manager/DrawManager.h"
+#include"../Src/Manager/DataManager.h"
 
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
@@ -24,6 +25,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	// 管理クラスの作成
 	SceneManager* pSceneManager = new SceneManager();
+	DataManager::CreateInstance();
 
 	DrawManager::LoadAllGraph();
 
@@ -59,6 +61,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	delete pSceneManager;
 	pSceneManager = nullptr;
 	DrawManager::DeleteAllGraph();
+	DataManager::DestroyInstance();
 
 	// DXライブラリ使用に終了処理
 	DxLib_End();

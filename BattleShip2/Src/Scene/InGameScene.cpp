@@ -13,6 +13,7 @@ InGameScene::InGameScene()
 	, offset_x{ 128 }
 	, offset_y{ 64 }
 	, p_square{ nullptr }
+	,pDataMng{DataManager::GetInstance()}
 {
 
 	for (int i = 0; i < count_height; i++)
@@ -22,6 +23,7 @@ InGameScene::InGameScene()
 			p_square[i][j] = new SelectSquare();
 		}
 	}
+	tmp_state = pDataMng->PassData();
 }
 
 InGameScene::~InGameScene()
@@ -42,10 +44,15 @@ void InGameScene::Exec()
 {
 	DetectClickForTrans();
 
-	for (int i = 0; i < count_height; i++)
+	for (int i = 0; i < count_height-1; i++)
 	{
 		for (int j = 0; j < count_width; j++)
 		{
+			if (tmp_state.center_x == (150 + (17 + (j * 33))) && tmp_state.center_y == (20 + (33 + (i * 33))))
+			{
+				p_square[i][j]->ChangeSquareTarget();
+				p_square[i+1][j]->ChangeSquareTarget();
+			}
 			//if(p_square[i][j]->DetectDragArea(101 + j * 33, 101 + i * 33)&&Input::GetLogType()== MOUSE_INPUT_LOG_DOWN)
 			//p_square[i][j]->ConvertIsDrag();
 
@@ -66,7 +73,7 @@ void InGameScene::Draw()
 	{
 		for (int j = 0; j < count_width; j++)
 		{
-			p_square[i][j]->Draw(151+j*33,21+i*33,SquareID::OFF);
+			p_square[i][j]->Draw(151+j*33,21+i*33);
 		}
 	}
 	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGHandle("Src/Draw/Result.png"), false);
