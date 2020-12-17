@@ -39,18 +39,18 @@ struct SquareState
 	int center_x;
 	int center_y;
 	SquareID square;
-};
-
-struct ShipState
-{
-	int pos_x;
-	int pos_y;
-	int center_x;
-	int center_y;
-	SquareID square;
 	ShipID ship;
-
 };
+
+//struct ShipState
+//{
+//	int pos_x;
+//	int pos_y;
+//	int center_x;
+//	int center_y;
+//	SquareID square;
+//	ShipID ship;
+//};
 
 const int count_width = 10;
 const int count_height = 10;

@@ -10,12 +10,28 @@ public:
 	ShipSquare();
 	virtual ~ShipSquare();
 
-	virtual void Draw(int origin_x, int origin_y,SquareID square)const;
-	void DetectDragForClick();
+	void Exec();
+	virtual void Draw(int init_x, int init_y,ShipID ship)const;
+
+	void DetectShipArea();
 //	void ConvertIsDrag();
+
+
+	int GetDragPosXForDraw(int x)const;
+	int GetDragPosYForDraw(int y)const;
+
+	void SetReleasePosXForDraw();
+	void SetReleasePosYForDraw();
+	int GetReleasePosXForDraw()const;
+	int GetReleasePosYForDraw()const;
+
+	int AdjustDrawPosX()const;
+	int AdjustDrawPosY()const;
 
 private:
 	bool isDrag;
+	int tmpPosX;
+	int tmpPosY;
 };
 
 #endif

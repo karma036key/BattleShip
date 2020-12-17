@@ -11,6 +11,7 @@ public:
 	static void DrawBackGround();
 	static void DrawFrame();
 	static void DrawFade();
+
 	static void LoadAllGraph();
 	static void DeleteAllGraph();
 	static int PassGHandle(const char* filename);

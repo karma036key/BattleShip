@@ -40,7 +40,7 @@ InGameScene::~InGameScene()
 
 void InGameScene::Exec()
 {
-	DetectClickArea();
+	DetectClickForTrans();
 
 	for (int i = 0; i < count_height; i++)
 	{
@@ -81,10 +81,10 @@ bool InGameScene::DecideEnd()const
 
 }
 
-void InGameScene::DetectClickArea()
+void InGameScene::DetectClickForTrans()
 {
 
-	if (Input::DetectClick()) {
+	if (Input::NotifyOfClick()) {
 		if ((origin_pos_x<Input::GetMousePosX() && (origin_pos_x + offset_x)>Input::GetMousePosX())
 			&& (origin_pos_y<Input::GetMousePosY() && (origin_pos_y + offset_y)>Input::GetMousePosY()))
 		{

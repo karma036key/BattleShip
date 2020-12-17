@@ -13,6 +13,7 @@ PreparationScene::PreparationScene()
 	, origin_pos_y{ 0 }
 	, offset_x{ 128 }
 	, offset_y{ 64 }
+	,isTouch{false}
 	, p_square{ nullptr }
 	,p_ship{nullptr}
 {
@@ -49,15 +50,16 @@ PreparationScene::~PreparationScene()
 
 void PreparationScene::Exec()
 {
-	DetectClickArea();
+	DetectClickForTrans();
 
-	for (int i = 0; i < count_height; i++)
+	for (int i = 0; i < 7; i++)
 	{
-		for (int j = 0; j < count_width; j++)
+		for (int j = 0; j < 7; j++)
 		{
 			//if(p_square[i][j]->DetectDragArea(101 + j * 33, 101 + i * 33)&&Input::GetLogType()== MOUSE_INPUT_LOG_DOWN)
 			//p_square[i][j]->ConvertIsDrag();
-
+			if(isTouch)
+			p_ship[i]->Exec();
 		}
 	}
 	if (isTrans)
@@ -71,8 +73,13 @@ void PreparationScene::Exec()
 void PreparationScene::Draw()
 {
 	DrawManager::DrawFrame();
-	p_ship[0]->Draw(167, 53, SquareID::NONE);
-//	p_ship[0]->Draw(167, 69, SquareID::NONE);
+	p_ship[0]->Draw(167, 53, ShipID::SHIP2);
+	p_ship[1]->Draw(167, 53, ShipID::SHIP3);
+	p_ship[2]->Draw(167, 53, ShipID::SHIP4);
+	p_ship[3]->Draw(167, 53, ShipID::SHIP5);
+	p_ship[4]->Draw(167, 53, ShipID::SHIP2);
+	p_ship[5]->Draw(167, 53, ShipID::SHIP2);
+	p_ship[6]->Draw(167, 53, ShipID::SHIP2);
 	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGHandle("Src/Draw/InGame.png"), false);
 
 }
@@ -86,15 +93,17 @@ bool PreparationScene::DecideEnd()const
 
 }
 
-void PreparationScene::DetectClickArea()
+void PreparationScene::DetectClickForTrans()
 {
-	if (Input::DetectClick()) {
+	if (Input::NotifyOfClick()) {
 
 		if ((origin_pos_x<Input::GetMousePosX() && (origin_pos_x + offset_x)>Input::GetMousePosX())
 			&& (origin_pos_y<Input::GetMousePosY() && (origin_pos_y + offset_y)>Input::GetMousePosY()))
 		{
 			isTrans = true;
 		}
+		else
+			isTouch = true;
 	}
 
 }

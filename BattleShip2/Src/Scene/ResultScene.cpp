@@ -27,7 +27,7 @@ ResultScene::~ResultScene()
 
 void ResultScene::Exec()
 {
-	DetectClickArea();
+	DetectClickForTrans();
 
 	if (isTrans)
 	{
@@ -56,10 +56,10 @@ bool ResultScene::DecideEnd()const
 }
 
 
-void ResultScene::DetectClickArea()
+void ResultScene::DetectClickForTrans()
 {
 
-	if (Input::DetectClick()) {
+	if (Input::NotifyOfClick()) {
 		if ((origin_pos_x<Input::GetMousePosX() && (origin_pos_x + offset_x)>Input::GetMousePosX())
 			&& (origin_pos_y<Input::GetMousePosY() && (origin_pos_y + offset_y)>Input::GetMousePosY()))
 		{

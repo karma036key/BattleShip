@@ -8,7 +8,7 @@ public:
 	SquareBase();
 	virtual ~SquareBase();
 
-	virtual void Draw(int origin_x, int origin_y, SquareID square)const = 0;
+	virtual void Draw(int origin_x, int origin_y, SquareID square)const;
 
 
 

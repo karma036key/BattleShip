@@ -25,7 +25,7 @@ TitleScene::~TitleScene()
 
 void TitleScene::Exec()
 {
-	DetectClickArea();
+	DetectClickForTrans();
 
 	if (isTrans) {
 
@@ -47,9 +47,9 @@ bool TitleScene::DecideEnd()const
 }
 
 
-void TitleScene::DetectClickArea()
+void TitleScene::DetectClickForTrans()
 {
-	if (Input::DetectClick()) {
+	if (Input::NotifyOfClick()) {
 		if ((origin_pos_x<Input::GetMousePosX() && (origin_pos_x + offset_x)>Input::GetMousePosX())
 			&& (origin_pos_y<Input::GetMousePosY() && (origin_pos_y + offset_y)>Input::GetMousePosY()))
 		{
