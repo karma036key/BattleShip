@@ -8,9 +8,6 @@
     <Filter Include="ソース ファイル\Scene">
       <UniqueIdentifier>{c38c715a-c650-4be0-be65-5cd09b505114}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Input">
-      <UniqueIdentifier>{00ed586c-02c7-4281-9cc9-c1505d59a4c6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Draw">
       <UniqueIdentifier>{6606d518-d4f7-48fe-8a87-39a388a797fe}</UniqueIdentifier>
     </Filter>
@@ -101,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="Src\Square\ShipSquare.h">
       <Filter>ソース ファイル\Square</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

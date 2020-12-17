@@ -166,6 +166,7 @@
     <ClCompile Include="Src\WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Singleton.h" />
     <ClInclude Include="Src\Definition.h" />
     <ClInclude Include="Src\Manager\DataManager.h" />
     <ClInclude Include="Src\Manager\DrawManager.h" />
