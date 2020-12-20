@@ -11,13 +11,17 @@ public:
 	DataManager();
 	~DataManager();
 
-	void ReceiveData(const ShipSquare& status);
-	SquareState PassData();
+	void ReceiveData1(const ShipSquare& status);
+	SquareState PassData1();
 
+	void ReceiveData2(const ShipSquare& status);
+	SquareState PassData2();
 private:
 	ShipSquare ship;
-	int targetPosX;
-	int targetPosY;
+	int target1_posX;
+	int target1_posY;
+	int target2_posX;
+	int target2_posY;
 
 };
 

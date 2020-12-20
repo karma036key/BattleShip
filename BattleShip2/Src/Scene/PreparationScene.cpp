@@ -29,11 +29,14 @@ PreparationScene::PreparationScene()
 	{
 		p_ship[i] = new ShipSquare();
 	}
+	p_ship[0]->SetInit(167, 53, ShipID::SHIP2);
+	p_ship[1]->SetInit(233, 53, ShipID::SHIP2);
 }
 
 PreparationScene::~PreparationScene()
 {
-	pDataMng->ReceiveData(*p_ship[0]);
+	pDataMng->ReceiveData1(*p_ship[0]);
+	pDataMng->ReceiveData2(*p_ship[1]);
 	for (int i = 0; i < count_height; i++)
 	{
 		for (int j = 0; j < count_width; j++)
@@ -54,16 +57,23 @@ void PreparationScene::Exec()
 {
 	DetectClickForTrans();
 
-	for (int i = 0; i < 7; i++)
-	{
-		for (int j = 0; j < 7; j++)
-		{
 			//if(p_square[i][j]->DetectDragArea(101 + j * 33, 101 + i * 33)&&Input::GetLogType()== MOUSE_INPUT_LOG_DOWN)
 			//p_square[i][j]->ConvertIsDrag();
-			if(isTouch)
-			p_ship[i]->Exec();
+	if (isTouch) {
+		p_ship[0]->Exec();
+		p_ship[1]->Exec();
+
+		for (int i = 0; i < 2; i++)
+		{
+			if (p_ship[i]->GetIsDrag())
+			{	continue;	}
+
+			Input::SetReleaseMousePosX(0);
+			Input::SetReleaseMousePosY(0);
+
 		}
 	}
+	
 	if (isTrans)
 	{
 		isEnd = true;
@@ -75,8 +85,8 @@ void PreparationScene::Exec()
 void PreparationScene::Draw()
 {
 	DrawManager::DrawFrame();
-	p_ship[0]->Draw(167, 53, ShipID::SHIP2);/*
-	p_ship[1]->Draw(167, 53, ShipID::SHIP3);
+	p_ship[0]->Draw();
+	p_ship[1]->Draw();/*
 	p_ship[2]->Draw(167, 53, ShipID::SHIP4);
 	p_ship[3]->Draw(167, 53, ShipID::SHIP5);
 	p_ship[4]->Draw(167, 53, ShipID::SHIP2);

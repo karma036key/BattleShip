@@ -8,7 +8,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 {
 	SetOutApplicationLogValidFlag(false);
 	ChangeWindowMode(true);
-	SetGraphMode(640, 360, 32);
+	SetGraphMode(1440, 720, 32);
 	SetBackgroundColor(125, 125, 125);
 	SetMainWindowText("BattleShip");
 

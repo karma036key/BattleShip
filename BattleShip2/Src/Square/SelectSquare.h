@@ -7,12 +7,21 @@ class SelectSquare :public SquareBase
 public:
 	SelectSquare();
 	virtual ~SelectSquare();
-
-	virtual void Draw(int origin_x,int origin_y)const;
-	void ChangeSquareTarget();
-
+	
+	void Exec();
+	virtual void Draw()const;
+	void ChangeSquareHit();
+	void ChangeSquareOff();
+	void DetectClickForSelect();
+	void SetOriginX(int x);
+	void SetOriginY(int y);
+	int GetOriginX()const;
+	int GetOriginY()const;
 private:
 	SquareID exa;
+	int origin_x;
+	int origin_y;
+	bool isChange;
 };
 
 

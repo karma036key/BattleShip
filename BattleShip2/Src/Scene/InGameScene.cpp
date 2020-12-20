@@ -23,7 +23,8 @@ InGameScene::InGameScene()
 			p_square[i][j] = new SelectSquare();
 		}
 	}
-	tmp_state = pDataMng->PassData();
+	tmp_state[0] = pDataMng->PassData1();
+	tmp_state[1] = pDataMng->PassData2();
 }
 
 InGameScene::~InGameScene()
@@ -44,18 +45,34 @@ void InGameScene::Exec()
 {
 	DetectClickForTrans();
 
-	for (int i = 0; i < count_height-1; i++)
+	for (int y = 0; y < count_height; y++)
 	{
-		for (int j = 0; j < count_width; j++)
+		for (int x = 0; x < count_width; x++)
 		{
-			if (tmp_state.center_x == (150 + (17 + (j * 33))) && tmp_state.center_y == (20 + (33 + (i * 33))))
-			{
-				p_square[i][j]->ChangeSquareTarget();
-				p_square[i+1][j]->ChangeSquareTarget();
-			}
-			//if(p_square[i][j]->DetectDragArea(101 + j * 33, 101 + i * 33)&&Input::GetLogType()== MOUSE_INPUT_LOG_DOWN)
-			//p_square[i][j]->ConvertIsDrag();
+			p_square[y][x]->SetOriginX(151 + x * 33);
+			p_square[y][x]->SetOriginY(21 + y * 33);
 
+			p_square[y][x]->ChangeSquareOff();
+
+			p_square[y][x]->DetectClickForSelect();
+		}
+
+	}
+
+	for (int k = 0; k < 2; k++) {
+		for (int i = 0; i < count_height - 1; i++)
+		{
+			for (int j = 0; j < count_width; j++)
+			{
+				if (tmp_state[k].center_x == (150 + (17 + (j * 33))) && tmp_state[k].center_y == (20 + (33 + (i * 33))))
+				{
+					p_square[i][j]->ChangeSquareHit();
+					p_square[i + 1][j]->ChangeSquareHit();
+				}
+				//if(p_square[i][j]->DetectDragArea(101 + j * 33, 101 + i * 33)&&Input::GetLogType()== MOUSE_INPUT_LOG_DOWN)
+				//p_square[i][j]->ConvertIsDrag();
+
+			}
 		}
 	}
 	if (isTrans)
@@ -73,7 +90,7 @@ void InGameScene::Draw()
 	{
 		for (int j = 0; j < count_width; j++)
 		{
-			p_square[i][j]->Draw(151+j*33,21+i*33);
+			p_square[i][j]->Draw();
 		}
 	}
 	DrawGraph(origin_pos_x, origin_pos_y, DrawManager::PassGHandle("Src/Draw/Result.png"), false);
@@ -83,14 +100,10 @@ void InGameScene::Draw()
 bool InGameScene::DecideEnd()const
 {
 	return isEnd;
-
-
-
 }
 
 void InGameScene::DetectClickForTrans()
 {
-
 	if (Input::NotifyOfClick()) {
 		if ((origin_pos_x<Input::GetMousePosX() && (origin_pos_x + offset_x)>Input::GetMousePosX())
 			&& (origin_pos_y<Input::GetMousePosY() && (origin_pos_y + offset_y)>Input::GetMousePosY()))
@@ -99,6 +112,7 @@ void InGameScene::DetectClickForTrans()
 		}
 	}
 }
+
 
 
 //bool InGameScene::DetectEndArea2()const

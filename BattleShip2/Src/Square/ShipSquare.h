@@ -11,7 +11,7 @@ public:
 	virtual ~ShipSquare();
 
 	void Exec();
-	virtual void Draw(int init_x, int init_y,ShipID ship)const;
+	virtual void Draw()const;
 
 	void DetectShipArea();
 //	void ConvertIsDrag();
@@ -20,19 +20,29 @@ public:
 	int GetDragPosXForDraw(int x)const;
 	int GetDragPosYForDraw(int y)const;
 
-	void SetReleasePosXForDraw();
-	void SetReleasePosYForDraw();
-	int GetReleasePosXForDraw()const;
-	int GetReleasePosYForDraw()const;
+	void SetCenterPosX();
+	void SetCenterPosY();
+	int GetCenterPosX()const;
+	int GetCenterPosY()const;
 
-	int AdjustDrawPosX()const;
-	int AdjustDrawPosY()const;
+
+	int GetDragPosXForDraw2(int x)const;
+	int GetDragPosYForDraw2(int y)const;
+	void SetReleasePosXForDraw2();
+	void SetReleasePosYForDraw2();
+	int GetReleasePosXForDraw2()const;
+	int GetReleasePosYForDraw2()const;
+
+	void SetInit(int x,int y,ShipID i);
+	bool GetIsDrag();
+
 
 private:
 	bool isDrag;
 	bool isValid;
 	int tmpPosX;
 	int tmpPosY;
+	ShipID ship_id;
 };
 
 #endif

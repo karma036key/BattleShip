@@ -25,7 +25,7 @@ private:
 
 	class SelectSquare* p_square[count_height][count_width];
 	DataManager* pDataMng;
-	SquareState tmp_state;
+	SquareState tmp_state[2];
 };
 
 #endif
