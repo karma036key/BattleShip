@@ -64,7 +64,7 @@ void SelectSquare::ChangeSquareOff()
 
 void SelectSquare::DetectClickForSelect()
 {
-	if ((GetOriginX() < Input::GetMousePosX() && Input::GetMousePosX() < GetOriginX() + 32) && (GetOriginY() < Input::GetMousePosY() && Input::GetMousePosY() < GetOriginY() + 32) && Input::NotifyOfDrag())
+	if ((GetOriginX() < Input::GetClickMousePosX() && Input::GetClickMousePosX() < GetOriginX() + 32) && (GetOriginY() < Input::GetClickMousePosY() && Input::GetClickMousePosY() < GetOriginY() + 32) )//&& Input::NotifyOfDrag())
 		isChange=true;
 
 
