@@ -57,23 +57,27 @@ void PreparationScene::Exec()
 {
 	DetectClickForTrans();
 
-			//if(p_square[i][j]->DetectDragArea(101 + j * 33, 101 + i * 33)&&Input::GetLogType()== MOUSE_INPUT_LOG_DOWN)
-			//p_square[i][j]->ConvertIsDrag();
-	if (isTouch) {
-		p_ship[0]->Exec();
-		p_ship[1]->Exec();
 
-		for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 2; i++)
+	{	p_ship[i]->SetIsHold(isTouch);	}
+	for (int i = 0; i < 2; i++)
+	{
+		if (!p_ship[i]->GetIsHold())
 		{
-			if (p_ship[i]->GetIsDrag())
-			{	continue;	}
-
-			Input::SetReleaseMousePosX(0);
-			Input::SetReleaseMousePosY(0);
 
 		}
 	}
-	
+	p_ship[0]->Exec();
+	p_ship[1]->Exec();
+
+
+
+	Input::SetReleaseMousePosX(0);
+	Input::SetReleaseMousePosY(0);
+	if (!Input::NotifyOfDrag())
+	{	isTouch = false;	}
+
+
 	if (isTrans)
 	{
 		isEnd = true;

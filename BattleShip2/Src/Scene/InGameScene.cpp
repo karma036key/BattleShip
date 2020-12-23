@@ -60,14 +60,14 @@ void InGameScene::Exec()
 	}
 
 	for (int k = 0; k < 2; k++) {
-		for (int i = 0; i < count_height - 1; i++)
+		for (int y = 0; y < count_height - 1; y++)
 		{
-			for (int j = 0; j < count_width; j++)
+			for (int x = 0; x < count_width; x++)
 			{
-				if (tmp_state[k].center_x == (150 + (17 + (j * 33))) && tmp_state[k].center_y == (20 + (33 + (i * 33))))
+				if (tmp_state[k].center_x == (150 + (17 + (x * 33))) && tmp_state[k].center_y == (20 + (33 + (y * 33))))
 				{
-					p_square[i][j]->ChangeSquareHit();
-					p_square[i + 1][j]->ChangeSquareHit();
+					p_square[y][x]->ChangeSquareHit();
+					p_square[y + 1][x]->ChangeSquareHit();
 				}
 				//if(p_square[i][j]->DetectDragArea(101 + j * 33, 101 + i * 33)&&Input::GetLogType()== MOUSE_INPUT_LOG_DOWN)
 				//p_square[i][j]->ConvertIsDrag();

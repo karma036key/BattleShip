@@ -59,6 +59,7 @@ bool Input::NotifyOfClick()
 			{
 				SetClickMousePosX(mouse_x);
 				SetClickMousePosY(mouse_y);
+				SetLogType(log_type);
 				return true;
 			}
 			SetLogType(log_type);

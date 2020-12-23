@@ -35,20 +35,17 @@ void SelectSquare::Draw()const
 			DrawGraph(GetOriginX(), GetOriginY(), DrawManager::PassGHandle("Src/Draw/off.png"), false); break;
 		}
 		else {
-			DrawGraph(GetOriginX(), GetOriginY(), DrawManager::PassGHandle("Src/Draw/none.png"), false);
-		}break;
+			DrawGraph(GetOriginX(), GetOriginY(), DrawManager::PassGHandle("Src/Draw/none.png"), false); break;
+		}
 	case SquareID::HIT:
-		if (isChange)
-		{
+		if (isChange){
 			DrawGraph(GetOriginX(), GetOriginY(), DrawManager::PassGHandle("Src/Draw/hit.png"), false); break;
 		}
-		else
-		{
-			DrawGraph(GetOriginX(), GetOriginY(), DrawManager::PassGHandle("Src/Draw/none.png"), false);
+		else{
+			DrawGraph(GetOriginX(), GetOriginY(), DrawManager::PassGHandle("Src/Draw/none.png"), false); break;
 		}break;
 	case SquareID::NONE:
 		DrawGraph(GetOriginX(), GetOriginY(), DrawManager::PassGHandle("Src/Draw/none.png"), false); break;
-		break;
 	}
 }
 
@@ -66,17 +63,14 @@ void SelectSquare::DetectClickForSelect()
 {
 	if ((GetOriginX() < Input::GetClickMousePosX() && Input::GetClickMousePosX() < GetOriginX() + 32) && (GetOriginY() < Input::GetClickMousePosY() && Input::GetClickMousePosY() < GetOriginY() + 32) )//&& Input::NotifyOfDrag())
 		isChange=true;
-
-
 }
 
 
 void SelectSquare::SetOriginX(int x)
 {	origin_x = x;	}
 void SelectSquare::SetOriginY(int y)
-{	origin_y = y;}
+{	origin_y = y;	}
 int SelectSquare::GetOriginX()const
-{	return origin_x;}
-
+{	return origin_x;	}
 int SelectSquare::GetOriginY()const
-{	return origin_y;}
+{	return origin_y;	}
